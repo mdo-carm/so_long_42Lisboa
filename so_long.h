@@ -6,7 +6,13 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 23:54:50 by mdo-carm          #+#    #+#             */
-/*   Updated: 2022/11/23 23:55:01 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:47:46 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+
+
+
+#endif
