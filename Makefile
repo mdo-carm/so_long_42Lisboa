@@ -6,7 +6,7 @@
 #    By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 00:06:37 by mdo-carm          #+#    #+#              #
-#    Updated: 2022/11/23 21:32:51 by mdo-carm         ###   ########.fr        #
+#    Updated: 2023/01/12 02:30:23 by mdo-carm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,19 +20,22 @@ COLOUR_END=\033[0m
 CC = gcc
 RM = rm -rf
 
-SOURCE_C = test.c \
+SOURCE_C = so_long.c \ library/get_next_line.c
 
-CFLAGS = -Wall  \
+#CFLAGS = -Wall  \
          -Wextra \
          -Werror  \
 
 all: $(NAME)
 
-$(NAME): mlx_lib $(SOURCE_C)
-		@$(CC) $(CFLAGS) $(SOURCE_C) mlx/libmlx.a -lXext -lX11 -o $@
+$(NAME): mlx_lib libft_lib $(SOURCE_C)
+		@$(CC) $(CFLAGS) $(SOURCE_C) library/libft/libft.a mlx/libmlx.a -lXext -lX11 -o $@
 
 mlx_lib:
 		@$(MAKE) -C ./mlx --no-print-directory
+
+libft_lib:
+		@$(MAKE) -C ./library/libft --no-print-directory
 
 clean: 
 		@rm -rf $(OBJ)
@@ -40,6 +43,7 @@ clean:
 fclean:	clean
 		@$(RM) $(NAME) *.o
 		@$(MAKE) clean -C ./mlx
+		@$(MAKE) fclean -C ./library/libft
 
 re: fclean all
 
