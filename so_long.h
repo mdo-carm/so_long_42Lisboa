@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 23:54:50 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/02/23 02:17:41 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/02/25 00:56:30 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,12 @@
 // 	int		width;
 // }		t_win;
 
-typedef struct s_map
+typedef struct map
 {
 	char	**map;
 	int		x_map;
 	int		y_map;
 }		t_map;
-
 
 // t_win new_program(int width, int height, char *str)
 // {
@@ -45,7 +44,7 @@ typedef struct s_map
 // }
 
 char	*get_next_line(int fd);
-void	map_size(int fd);
-void	map_create(int argc, char **argv);
+void	map_size(t_map *map, int fd);
+void	map_create(t_map *map, char *argv);
 
 #endif
