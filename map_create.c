@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:22:52 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/02/25 00:56:53 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/02/28 19:52:33 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ void	map_create(t_map *map, char *argv)
 
 	fd = open(argv, O_RDONLY);
 	fd2 = open(argv, O_RDONLY);
-	map_size(&map, fd);
+	map_size(map, fd);
 	map->map = (char **)ft_calloc((map->y_map + 1), sizeof(char *));
 	i = 0;
-	while (i < map->y_map)
+	while (i < map->y_map && !map->map[i])
 	{
 		map->map[i] = get_next_line(fd2);
 		printf("%s", map->map[i]);

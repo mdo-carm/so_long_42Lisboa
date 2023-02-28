@@ -6,7 +6,7 @@
 #    By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 00:06:37 by mdo-carm          #+#    #+#              #
-#    Updated: 2023/01/12 02:30:23 by mdo-carm         ###   ########.fr        #
+#    Updated: 2023/02/28 19:58:03 by mdo-carm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ COLOUR_END=\033[0m
 CC = gcc
 RM = rm -rf
 
-SOURCE_C = so_long.c \ library/get_next_line.c
+SOURCE_C = so_long.c map_create.c \
 
 #CFLAGS = -Wall  \
          -Wextra \
@@ -29,7 +29,7 @@ SOURCE_C = so_long.c \ library/get_next_line.c
 all: $(NAME)
 
 $(NAME): mlx_lib libft_lib $(SOURCE_C)
-		@$(CC) $(CFLAGS) $(SOURCE_C) library/libft/libft.a mlx/libmlx.a -lXext -lX11 -o $@
+		@$(CC) $(CFLAGS) $(SOURCE_C) library/get_next_line/get_next_line.c library/libft/libft.a mlx/libmlx.a -lXext -lX11 -o $@
 
 mlx_lib:
 		@$(MAKE) -C ./mlx --no-print-directory
