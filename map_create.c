@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:22:52 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/02/28 19:52:33 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/03/01 21:18:21 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	map_create(t_map *map, char *argv)
 	while (i < map->y_map && !map->map[i])
 	{
 		map->map[i] = get_next_line(fd2);
-		printf("%s", map->map[i]);
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 #    By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 00:06:37 by mdo-carm          #+#    #+#              #
-#    Updated: 2023/02/28 19:58:03 by mdo-carm         ###   ########.fr        #
+#    Updated: 2023/03/01 21:27:03 by mdo-carm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,9 @@ CC = gcc
 RM = rm -rf
 
 SOURCE_C = so_long.c map_create.c \
+           player_position.c 
 
-#CFLAGS = -Wall  \
+CFLAGS = -Wall  \
          -Wextra \
          -Werror  \
 
