@@ -6,7 +6,7 @@
 #    By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 00:06:37 by mdo-carm          #+#    #+#              #
-#    Updated: 2023/03/01 21:27:03 by mdo-carm         ###   ########.fr        #
+#    Updated: 2023/03/05 22:13:11 by mdo-carm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,15 @@ COLOUR_RED=\033[0;31m
 COLOUR_BLUE=\033[0;34m
 COLOUR_END=\033[0m
 
-CC = gcc
+CC = gcc 
+#-fsanitize=address
 RM = rm -rf
 
-SOURCE_C = so_long.c map_create.c \
-           player_position.c 
+SOURCE_C = so_long.c map_create.c        \
+           player_position.c start_game.c \
+           win_hooks.c 
 
-CFLAGS = -Wall  \
+#CFLAGS = -Wall  \
          -Wextra \
          -Werror  \
 

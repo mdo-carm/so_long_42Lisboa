@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 21:20:26 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/03/01 21:45:00 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/03/05 17:27:57 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 int	main(int argc, char **argv)
 {
-	t_map	map;
+	t_map		map;
 	t_player	player;
 	int	i = 0; //REMOVE THIS WHEN PROJECT IS COMPLETE
 
@@ -43,6 +43,6 @@ int	main(int argc, char **argv)
 	printf("\n\n"); //REMOVE THIS WHEN PROJECT IS COMPLETE
 	player_position(&player, &map);
 	printf("Player x_axis: %d\nPlayer y_axis: %d\n", player.x_player, player.y_player); //REMOVE THIS WHEN PROJECT IS COMPLETE
-	
+	start_game(&map, &player);
 	return (0);
 }
