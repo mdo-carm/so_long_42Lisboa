@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 17:27:16 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/03/08 22:35:11 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/03/15 23:16:54 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	start_game(t_map *map, t_player *player)
 {
 	t_win win;
 
-	if (!player)
+	if (!player && !map)
 		exit(EXIT_FAILURE);
 	win = new_program(960, 640, "so_long");
 	if (win.win_ptr == NULL)
@@ -36,4 +36,6 @@ void	start_game(t_map *map, t_player *player)
 	}
 	win_hooks(&win);
 	mlx_loop(win.mlx_ptr);
+	mlx_destroy_display(win.mlx_ptr);
+	free(win.mlx_ptr);
 }
