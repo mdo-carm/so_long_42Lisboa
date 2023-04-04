@@ -6,31 +6,62 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:22:52 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/03/22 22:58:03 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/02 19:40:49 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+int	cmp_map_to_wall(char *s1)
+{
+	int		i;
+	char	x;
+
+	x = '1';
+	i = 0;
+	while (s1[i] == x && s1[i] != '\0')
+		i++;
+	if (s1[i] == 0 || s1[i] == 10)
+		i = 0;
+	x = (unsigned char)s1[i] - (unsigned char)x;
+	return (x);
+}
+
+int	check_walls(t_map *map, unsigned int i)
+{
+	if (cmp_map_to_wall(map->map[0]) != 0 || \
+	cmp_map_to_wall(map->map[map->y_map - 1]) != 0)
+	{
+		free_map(map);
+		exit(printf("\tWalls don't surround map1\n")); //function that deals with errors
+	}
+	i = 1;
+	while (i < map->y_map && \
+	map->map[i][0] == '1' && map->map[i][map->x_map - 1] == '1')
+		i++;
+	if (i == map->y_map)
+		return (0);
+	free_map(map);
+	exit(printf("\tWalls don't surround map2\n"));
+}
+
 void	check_map(t_map *map, unsigned int i)
 {
-	i = 0;
 	while (i < map->y_map - 1)
 	{
 		if ((ft_strlen(map->map[i]) - 1) != map->x_map)
 		{
-						printf("\tWrong map width1\n");
 			free_map(map);
-			exit(EXIT_FAILURE); //function that deals with errors
+			exit(printf("\tWrong map width1\n")); //function that deals with errors
 		}
 		i++;
 	}
 	if (ft_strlen(map->map[map->y_map - 1]) != map->x_map)
 	{
-						printf("\tWrong map width2\n");
 		free_map(map);
-		exit(EXIT_FAILURE); //function that deals with errors
+		exit(printf("\tWrong map width2\n")); //function that deals with errors
 	}
+	check_walls(map, i);
 }
 
 void	map_size(t_map *map, int fd)
@@ -40,7 +71,6 @@ void	map_size(t_map *map, int fd)
 	temp = get_next_line(fd);
 	if (temp != NULL)
 		map->x_map = ft_strlen(temp) - 1;
-								// printf("x_map = %d\n", map->x_map); 
 	while (temp)
 	{
 		free(temp);
@@ -48,13 +78,10 @@ void	map_size(t_map *map, int fd)
 		map->y_map += 1;
 	}
 	free(temp);
-								// printf("y_map = %d\n", map->y_map);
 	if((map->x_map < 5 && map->y_map < 3) \
 	|| (map->x_map < 3 && map->y_map < 5))
-	{
-								printf("\tWrong map dimensions\n");
-		exit(EXIT_FAILURE); //function that deals with errors
-	}
+		exit(printf("\tWrong map dimensions\n")); //function that deals with errors
+	printf("x_map = %d\ny_map = %d\n", map->x_map, map->y_map);
 }
 
 int	map_create(t_map *map, char *argv)
@@ -62,10 +89,10 @@ int	map_create(t_map *map, char *argv)
 	int				fd;
 	int				fd2;
 	unsigned int	i;
-
+ 
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
-		return(printf("map doesnt exist\n"));
+		return(printf("Map doesnt exist\n"));
 	fd2 = open(argv, O_RDONLY);
 	map_size(map, fd);
 	map->map = (char **)ft_calloc((map->y_map + 1), sizeof(char *));
@@ -75,5 +102,7 @@ int	map_create(t_map *map, char *argv)
 		map->map[i] = get_next_line(fd2);
 		i++;
 	}
+	i = 0;
 	check_map(map, i);
+	return (0);
 }

@@ -37,14 +37,16 @@ int	main(int argc, char **argv)
 		exit(printf("\t\tNOT ENOUGH PARAMETERS!!!\n"));
 		// error_message("\tINCORRECT NUMBER OF PARAMETERS!\n", 1);
 	if (map_create(&map, argv[1]))
-		return (2);
+		exit (printf("Error\nProblems creating map\n"));
 	// while (map.map[i] != NULL)
 	// {
 	// 	printf("%s", map.map[i]); //REMOVE THIS WHEN PROJECT IS COMPLETE
 	// 	i++;
 	// }
 	// printf("\n\n"); //REMOVE THIS WHEN PROJECT IS COMPLETE
-	player_position(&player, &map);
+	if (player_position(&player, &map))
+		exit (printf("Error\nProblems creating map\n"));
+	components_map(&map, &player);
 	// printf("Player x_axis: %d\nPlayer y_axis: %d\n", player.x_player, player.y_player); //REMOVE THIS WHEN PROJECT IS COMPLETE
 	start_game(&map, &player);
 	free_map(&map);

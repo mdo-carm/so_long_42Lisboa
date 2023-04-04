@@ -6,7 +6,7 @@
 #    By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 00:06:37 by mdo-carm          #+#    #+#              #
-#    Updated: 2023/03/22 20:47:42 by mdo-carm         ###   ########.fr        #
+#    Updated: 2023/04/04 21:09:12 by mdo-carm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,11 @@ RM = rm -rf
 SOURCE_C = so_long.c map_create.c        \
            player_position.c start_game.c \
            hook_events.c free_map.c        \
+           components_map.c                 \
 
-CFLAGS = -Wall  \
-         -Wextra \
-         -Werror  \
+# CFLAGS = -Wall  \
+#          -Wextra \
+#          -Werror  \
 
 all: $(NAME)
 

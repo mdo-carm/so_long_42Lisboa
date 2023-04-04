@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_position.c                                  :+:      :+:    :+:   */
+/*   components_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/01 20:11:36 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/04 21:54:20 by mdo-carm         ###   ########.fr       */
+/*   Created: 2023/04/01 15:51:09 by mdo-carm          #+#    #+#             */
+/*   Updated: 2023/04/04 21:56:00 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	player_position(t_player *player, t_map *map)
+void	components_map(t_map *map, t_player *player)
 {
 	unsigned int	i;
-	unsigned int	p_count;
+	unsigned int	exit_count;
+	unsigned int	collect_count;
+	char			*x;
 
-	p_count = 0;
+	exit_count = 0;
+	collect_count = 0;
 	i = 0;
 	while (i < map->y_map)
 	{
-		if (ft_strchr(map->map[i], 'P') != NULL)
+		x = map->map[i];
+		if (ft_strchr(map->map[i], 'E') != NULL)
+			exit_count += 1;
+		while (ft_strchr(x, 'C') != NULL)
 		{
-			player->x_player = ft_strlen(map->map[i]) \
-			- ft_strlen(ft_strchr(map->map[i], 'P'));
-			p_count += 1;
+			collect_count += 1;
+			x = ft_strchr(x, 'C');
+			x++;
 		}
-		player->y_player += 1;
 		i++;
 	}
-	if (p_count != 1)
-		exit(printf("\tIncorrect amount of players\n")); //
-	return(0);
+	if (collect_count < 1 || exit_count != 1)
+		exit(printf("Error\nIncorrect amount of components!\n"));
 }

@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 11:22:59 by mdo-carm          #+#    #+#             */
-/*   Updated: 2021/12/22 15:56:02 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/01 17:09:16 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_strncmp(char *s1, char *s2, int n)
 /*
 int	main(void)
 {
-	printf("Real function: %d\n\n", strncmp("1234", "1235", -100));
-	printf("My function: %d\n", ft_strncmp("1234", "1235", 0));
+	printf("Real function: %d\n\n", strncmp("1111111", "1", 5));
+	printf("My function: %d\n", ft_strncmp("1111111", "1", 5));
 }
 */
