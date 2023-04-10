@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 17:27:16 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/04 22:26:20 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:48:22 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ void	start_game(t_map *map, t_player *player)
 	win.img.mlx_img = mlx_new_image(win.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
 	win.img.addr = mlx_get_data_addr(win.img.mlx_img, &win.img.bpp, &win.img.line_len, &win.img.endian);
 	img.mlx_img = mlx_xpm_file_to_image(win.mlx_ptr, relative_path, &img.img_x, &img.img_y);
-	img.addr = mlx_get_data_addr(img.mlx_img, &img.bpp, &img.line_len, &img.endian);
+	img.addr = mlx_get_data_addr(&img.mlx_img, &img.bpp, &img.line_len, &img.endian);
 	i = 0;
-	while(i < 31)
+	while(i < 32)
 	{
-		color = my_mlx_pixel_get(&img, i, 15);
+		color = my_mlx_pixel_get(&img, 1, i);
 		my_mlx_pixel_put(&win.img, 200 + i, 200, color);
 		i++;
 	}

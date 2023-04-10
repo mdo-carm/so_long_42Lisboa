@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 18:58:34 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/04 21:32:16 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/05 22:26:28 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,5 @@ void	win_hooks(t_win *win, t_img *img)
 	mlx_hook(win->win_ptr, 17, 0, close_x, win);
 	mlx_hook(win->win_ptr, 3, 1L<<1, close_esc, win);
 	// mlx_hook(win->win_ptr, 2, 1L<<0, test_walk, win);
-	// mlx_loop_hook(win->mlx_ptr, &handle_no_event, win);
+	mlx_loop_hook(win->mlx_ptr, &handle_no_event, win);
 }
