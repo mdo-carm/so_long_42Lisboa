@@ -6,13 +6,13 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 15:51:09 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/04 21:56:00 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/14 22:43:36 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	components_map(t_map *map, t_player *player)
+void	components_map(t_map *map, t_comp *comp)
 {
 	unsigned int	i;
 	unsigned int	exit_count;

@@ -47,7 +47,6 @@ int	main(int argc, char **argv)
 	if (player_position(&player, &map))
 		exit (printf("Error\nProblems creating map\n"));
 	components_map(&map, &player);
-	// printf("Player x_axis: %d\nPlayer y_axis: %d\n", player.x_player, player.y_player); //REMOVE THIS WHEN PROJECT IS COMPLETE
 	start_game(&map, &player);
 	free_map(&map);
 	return (0);

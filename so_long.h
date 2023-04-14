@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 23:54:50 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/04 21:56:06 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/14 22:46:02 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ typedef struct s_win
 	t_img	img;
 }		t_win;
 
-typedef struct s_player
+typedef struct s_comp
 {
 	int	x_player;
 	int	y_player;
 	int	collect;
 	int	exit;
-}		t_player;
+}		t_comp;
 
 char	*get_next_line(int fd);
 void	map_size(t_map *map, int fd);
