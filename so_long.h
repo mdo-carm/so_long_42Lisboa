@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 23:54:50 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/14 22:46:02 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/14 22:48:04 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ typedef struct s_comp
 char	*get_next_line(int fd);
 void	map_size(t_map *map, int fd);
 int		map_create(t_map *map, char *argv);
-int		player_position(t_player *player, t_map *map);
-void	start_game(t_map *map, t_player *player);
+int		player_position(t_comp *comp, t_map *map);
+void	start_game(t_map *map, t_comp *comp);
 t_win	new_program(int width, int height, char *str);
 int		close_x(t_win *win);
 int		close_esc(int keycode, t_win *win);
@@ -75,6 +75,6 @@ void	win_hooks(t_win *win, t_img *img);
 void	free_map(t_map *map);
 int		check_walls(t_map *map, unsigned int i);
 int		cmp_map_to_wall(char *s1);
-void	components_map(t_map *map, t_player *player);
+void	components_map(t_map *map, t_comp *comp);
 
 #endif

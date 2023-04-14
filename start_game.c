@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 17:27:16 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/14 22:33:18 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/14 22:48:45 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,14 @@ void	put_wall(t_win *win, t_img *img, char *relative_path)
 	}
 }
 
-void	start_game(t_map *map, t_player *player)
+void	start_game(t_map *map, t_comp *comp)
 {
 	t_win	win;
 	t_img	img;
 	char	*relative_path1 = "./textures/water_tile.xpm";
 	char	*relative_path2 = "./textures/Player.xpm";
 
-	if (!player && !map)
+	if (!comp && !map)
 		exit(printf("Error\n")); //
 	win = new_program(WINDOW_WIDTH, WINDOW_HEIGHT, "so_long");
 	if (win.win_ptr == NULL)
