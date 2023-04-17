@@ -6,21 +6,21 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:22:35 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/03/18 20:11:57 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/15 18:29:06 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	free_map(t_map *map)
+void	free_map(void)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (i <= map->y_map)
+	while (i <= map()->y_map)
 	{
-		free(map->map[i]);
+		free(map()->map[i]);
 		i++;
 	}
-	free(map->map);
+	free(map()->map);
 }

@@ -12,17 +12,6 @@ make: *** [Makefile:34: so_long] Error 1
 
 #include "so_long.h"
 
-// t_win new_win(int width, int height, char *str);
-
-// void start(void)
-// {
-// 	t_win win;
-
-// 	win = new_win(win.width, win.height, "so_long");
-// 	if (!win.mlx_ptr)
-// 		exit(EXIT_FAILURE);
-// }
-
 int	main(int argc, char **argv)
 {
 	t_map	map;
@@ -36,7 +25,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		exit(printf("\t\tNOT ENOUGH PARAMETERS!!!\n"));
 		// error_message("\tINCORRECT NUMBER OF PARAMETERS!\n", 1);
-	if (map_create(&map, argv[1]))
+	if (map_create(argv[1]))
 		exit (printf("Error\nProblems creating map\n"));
 	// while (map.map[i] != NULL)
 	// {
@@ -44,10 +33,10 @@ int	main(int argc, char **argv)
 	// 	i++;
 	// }
 	// printf("\n\n"); //REMOVE THIS WHEN PROJECT IS COMPLETE
-	if (player_position(&comp, &map))
+	if (player_position())
 		exit (printf("Error\nProblems creating map\n"));
-	components_map(&map, &comp);
-	start_game(&map, &comp);
-	free_map(&map);
+	components_map();
+	start_game();
+	free_map();
 	return (0);
 }
