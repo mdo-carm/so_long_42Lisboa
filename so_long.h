@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 23:54:50 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/17 21:13:08 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/19 22:04:43 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ void			put_img2(t_img *img, int x, int y);
 void			create_img(void);
 t_img			create_img2(char *img_path);
 void			put_img_player(void);
-int				walk_player(int keycode, t_win *win);
+int				walk_player(int keycode);
+void			move_player(int keycode);
+void			move(int x, int y, int *player);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 21:23:05 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/17 21:44:08 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/19 22:54:03 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ t_img	create_img2(char *img_path)
 
 void	create_img(void)
 {
-
 	win()->img.mlx_img = mlx_new_image(win()->mlx_ptr, map()->x_map * 32, map()->y_map * 32);
 	win()->img.addr = mlx_get_data_addr(win()->img.mlx_img, &win()->img.bpp, &win()->img.line_len, &win()->img.endian);
-	pic()->coin = create_img2("./textures/coin.xpm");
+	pic()->coin = create_img2("./textures/fish.xpm");
 	pic()->player = create_img2("./textures/player.xpm");
 	pic()->tree = create_img2("./textures/tree_exit.xpm");
 	pic()->wall = create_img2("./textures/wall_tile.xpm");

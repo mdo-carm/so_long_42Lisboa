@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 19:23:00 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/17 21:39:45 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/19 22:54:51 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ void	put_img(void)
 				put_img2(&pic()->water, x, y);
 				if (map()->map[y][x] == 'E')
 					put_img2(&pic()->tree, x, y);
+				if (map()->map[y][x] == 'C')
+					put_img2(&pic()->coin, x, y);
 			}
 			x++;
 		}
