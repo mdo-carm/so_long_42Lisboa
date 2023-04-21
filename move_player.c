@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 20:58:24 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/19 22:58:50 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/21 23:10:25 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void move(int x, int y, int *player)
 		map()->map[comp()->y_player][comp()->x_player] = '0';
 	}
 	if (map()->map[comp()->y_player][comp()->x_player] == 'E' && comp()->collect == 0)
-		exit(0);
+		close_program();
 }
 
 void	move_player(int keycode)

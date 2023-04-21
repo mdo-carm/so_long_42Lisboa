@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 19:23:00 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/19 22:54:51 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/21 23:20:44 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void	put_img_player(void)
 
 void	put_img(void)
 {
-	int		x;
-	int		y;
+	unsigned int		x;
+	unsigned int		y;
 
 	x = 0;
 	y = 0;

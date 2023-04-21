@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 23:54:50 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/19 22:04:43 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/21 22:57:18 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,7 @@ int				map_create(char *argv);
 int				player_position(void);
 void			start_game(void);
 void			new_program(int width, int height, char *str);
-int				close_x(void);
-int				close_esc(int keycode);
+int				close_program(void);
 void			win_hooks(void);
 void			free_map(void);
 int				check_walls(unsigned int i);

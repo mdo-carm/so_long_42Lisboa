@@ -6,7 +6,7 @@
 #    By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 00:06:37 by mdo-carm          #+#    #+#              #
-#    Updated: 2023/04/19 20:59:16 by mdo-carm         ###   ########.fr        #
+#    Updated: 2023/04/21 23:29:32 by mdo-carm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,9 @@ SOURCE_C = so_long.c map_create.c        \
            put_img.c  create_img.c           \
            move_player.c                      \
 
-# CFLAGS = -Wall  \
-#          -Wextra \
-#          -Werror  \
+ CFLAGS = -Wall  \
+          -Wextra \
+          -Werror  \
 
 all: $(NAME)
 
