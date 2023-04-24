@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 17:27:16 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/21 23:20:02 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/23 20:25:33 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	new_program(int width, int height, char *str)
 
 void	start_game(void)
 {
-	if (!comp() && !map())
+	if (!comp() || !map())
 		exit(ft_printf("Error\n"));
 	new_program(map()->x_map * 32, map()->y_map * 32, "so_long");
 	if (win()->win_ptr == NULL)

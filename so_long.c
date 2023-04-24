@@ -14,13 +14,23 @@ make: *** [Makefile:34: so_long] Error 1
 
 int	main(int argc, char **argv)
 {
+	// unsigned int i = 0;
+
 	if (argc != 2)
-		exit(printf("\t\tNOT ENOUGH PARAMETERS!!!\n"));
+		exit(ft_printf("ERROR\nNOT ENOUGH PARAMETERS!!!\n"));
 	if (map_create(argv[1]))
-		exit (printf("Error\nProblems creating map\n"));
+	{
+		free_map();
+		exit (ft_printf("Error\nProblems creating map\n"));
+	}
 	if (player_position())
-		exit (printf("Error\nProblems creating map\n"));
+	{
+		free_map();
+		exit (ft_printf("Error\nProblems with player\n"));
+	}
 	components_map();
+	can_win();
+	printf("\n");
 	start_game();
 	free_map();
 	return (0);

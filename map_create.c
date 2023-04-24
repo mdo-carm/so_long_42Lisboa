@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:22:52 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/21 23:28:36 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/23 19:21:39 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	map_size(int fd)
 	free(temp);
 	if((map()->x_map < 5 && map()->y_map < 3) \
 	|| (map()->x_map < 3 && map()->y_map < 5))
-		exit(ft_printf("\tWrong map dimensions\n")); //function that deals with errors
+		exit(ft_printf("Error\nWrong map dimensions\n")); //function that deals with errors
 }
 
 int	map_create(char *argv)
@@ -91,7 +91,7 @@ int	map_create(char *argv)
  
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
-		return(ft_printf("Map doesnt exist\n"));
+		return(ft_printf("Error\nMap doesnt exist\n"));
 	fd2 = open(argv, O_RDONLY);
 	map_size(fd);
 	map()->map = (char **)ft_calloc((map()->y_map + 1), sizeof(char *));

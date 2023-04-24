@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 15:51:09 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/21 23:30:00 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/23 20:55:55 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ void	components_map(void)
 	}
 	comp()->collect = collect_count;
 	if (collect_count < 1 || exit_count != 1)
-		exit(printf("Error\nIncorrect amount of components!\n"));
+		exit(ft_printf("Error\nIncorrect amount of components!\n"));
 }

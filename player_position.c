@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 20:11:36 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/15 23:51:33 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/23 20:08:51 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int	player_position(void)
 		y++;
 	}
 	if (p_count != 1)
-		exit(printf("\tIncorrect amount of players\n")); //
+		exit(ft_printf("Error!!\nIncorrect amount of players\n"));
 	return(0);
 }
