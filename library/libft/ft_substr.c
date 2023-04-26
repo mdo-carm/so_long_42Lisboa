@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 20:45:10 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/01/12 01:12:07 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/26 22:45:28 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t				i;
-	char				*x;
+	size_t	i;
+	char	*x;
 
 	if (!s)
 		return (NULL);

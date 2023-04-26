@@ -14,7 +14,7 @@ make: *** [Makefile:34: so_long] Error 1
 
 int	main(int argc, char **argv)
 {
-	// unsigned int i = 0;
+	unsigned int i = 0;
 
 	if (argc != 2)
 		exit(ft_printf("ERROR\nNOT ENOUGH PARAMETERS!!!\n"));
@@ -30,8 +30,12 @@ int	main(int argc, char **argv)
 	}
 	components_map();
 	can_win();
-	printf("\n");
-	start_game();
+	while (i < map()->y_map)
+	{
+		printf("%s\n", map()->map[i]);
+		i++;
+	}
+	// start_game();
 	free_map();
 	return (0);
 }

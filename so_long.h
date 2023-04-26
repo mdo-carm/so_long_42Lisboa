@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 23:54:50 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/24 21:45:38 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/26 21:31:32 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_comp
 	int	move_nbr;
 	int	collect;
 	int	exit;
+	int	can_win;
 }		t_comp;
 
 typedef struct s_pic
@@ -83,6 +84,7 @@ void			new_program(int width, int height, char *str);
 int				close_program(void);
 void			win_hooks(void);
 void			free_map(void);
+void			free_map2(char **map_arr);
 int				check_walls(unsigned int i);
 int				cmp_map_to_wall(char *s1);
 void			components_map(void);
@@ -103,8 +105,5 @@ void			move_player(int keycode);
 void			move(int x, int y, int *player);
 void			fill(char **arr, int curr_x, int curr_y, char to_fill);
 void			can_win(void);
-void			free_map2(char **map_arr);
-int				flag_funct(int exit_found);
-
 
 #endif

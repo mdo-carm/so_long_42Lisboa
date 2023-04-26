@@ -6,33 +6,11 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 18:27:24 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/24 21:58:45 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/26 21:12:17 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	free_map2(char **map_arr)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (i <= map()->y_map)
-	{
-		free(map_arr[i]);
-		i++;
-	}
-	free(map_arr);
-}
-
-int	flag_funct(int exit_found)
-{
-	static int win;
-	
-	if (exit_found == 0 || exit_found == 1)
-		win = exit_found;
-	return (win);
-}
 
 void	fill(char **arr, int curr_x, int curr_y, char to_fill)
 {
@@ -42,10 +20,7 @@ void	fill(char **arr, int curr_x, int curr_y, char to_fill)
 	&& arr[curr_y][curr_x] != 'E' && arr[curr_y][curr_x] != 'P'))
 		return ;
 	if (arr[curr_y][curr_x] == 'E')
-	{
-		flag_funct(0);
-		return ;
-	}
+		comp()->can_win = 0;
 	arr[curr_y][curr_x] = 'F';
 	fill(arr, curr_x - 1, curr_y, to_fill);
 	fill(arr, curr_x + 1, curr_y, to_fill);
@@ -58,7 +33,7 @@ void	can_win(void)
 	unsigned int i;
 	char **map2;
 
-	flag_funct(1);
+	comp()->can_win = 1;
 	map2 = (char **)ft_calloc((map()->y_map + 1), sizeof(char *));
 	i = 0;
 	while (i < map()->y_map)
@@ -67,7 +42,7 @@ void	can_win(void)
 		i++;
 	}
 	fill(map2, comp()->x_player, comp()->y_player, map2[comp()->y_player][comp()->x_player]);
-	if (flag_funct(2) != 0)
+	if (comp()->can_win != 0)
 	{
 		free_map();
 		free_map2(map2);
