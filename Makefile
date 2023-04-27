@@ -6,7 +6,7 @@
 #    By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 00:06:37 by mdo-carm          #+#    #+#              #
-#    Updated: 2023/04/23 21:15:37 by mdo-carm         ###   ########.fr        #
+#    Updated: 2023/04/27 23:22:41 by mdo-carm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,10 +34,10 @@ SOURCE_C = so_long.c map_create.c        \
 all: $(NAME)
 
 $(NAME): mlx_lib libft_lib ft_printf_lib $(SOURCE_C)
-		@$(CC) $(CFLAGS) $(SOURCE_C) library/get_next_line/get_next_line.c library/libft/libft.a library/ft_printf/libftprintf.a mlx/libmlx.a -lXext -lX11 -o $@
+		@$(CC) $(CFLAGS) $(SOURCE_C) library/get_next_line/get_next_line.c library/libft/libft.a library/ft_printf/libftprintf.a library/mlx/libmlx.a -lXext -lX11 -o $@
 
 mlx_lib:
-		@$(MAKE) -C ./mlx --no-print-directory
+		@$(MAKE) -C ./library/mlx --no-print-directory
 
 libft_lib:
 		@$(MAKE) -C ./library/libft --no-print-directory
@@ -50,7 +50,7 @@ clean:
 
 fclean:	clean
 		@$(RM) $(NAME) *.o
-		@$(MAKE) clean -C ./mlx
+		@$(MAKE) clean -C ./library/mlx
 		@$(MAKE) fclean -C ./library/libft
 		@$(MAKE) fclean -C ./library/ft_printf
 

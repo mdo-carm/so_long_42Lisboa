@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                              d returned 1 exit status
-make: *** [Makefile:34: so_long] Error 1
-      +:+ +:+         +:+     */
+/*                                                        :::      ::::::::   */
+/*   so_long.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 21:20:26 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/03/12 20:36:29 by mdo-carm         ###   ########.fr       */
+/*   Created: 2023/04/27 21:29:47 by mdo-carm          #+#    #+#             */
+/*   Updated: 2023/04/27 21:29:50 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@ make: *** [Makefile:34: so_long] Error 1
 
 int	main(int argc, char **argv)
 {
-	unsigned int i = 0;
-
 	if (argc != 2)
 		exit(ft_printf("ERROR\nNOT ENOUGH PARAMETERS!!!\n"));
 	if (map_create(argv[1]))
@@ -30,12 +28,7 @@ int	main(int argc, char **argv)
 	}
 	components_map();
 	can_win();
-	while (i < map()->y_map)
-	{
-		printf("%s\n", map()->map[i]);
-		i++;
-	}
-	// start_game();
+	start_game();
 	free_map();
 	return (0);
 }

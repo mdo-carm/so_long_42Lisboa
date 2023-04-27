@@ -6,14 +6,14 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 23:54:50 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/26 21:31:32 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/27 23:22:58 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "mlx/mlx.h"
+# include "library/mlx/mlx.h"
 # include "library/libft/libft.h"
 # include "library/ft_printf/ft_printf.h"
 # include <stdlib.h>
@@ -54,6 +54,7 @@ typedef struct s_win
 	int		height;
 	int		width;
 	t_img	img;
+	int		action;
 }		t_win;
 
 typedef struct s_comp
@@ -69,7 +70,7 @@ typedef struct s_comp
 typedef struct s_pic
 {
 	t_img	coin;
-	t_img	player;
+	t_img	player[6];
 	t_img	tree;
 	t_img	wall;
 	t_img	water;
@@ -80,7 +81,7 @@ void			map_size(int fd);
 int				map_create(char *argv);
 int				player_position(void);
 void			start_game(void);
-void			new_program(int width, int height, char *str);
+void			new_program(int width, int height, char *str, t_win *win);
 int				close_program(void);
 void			win_hooks(void);
 void			free_map(void);
@@ -97,12 +98,12 @@ t_comp			*comp(void);
 t_pic			*pic(void);
 void			put_img(void);
 void			put_img2(t_img *img, int x, int y);
-void			create_img(void);
+void			create_img(t_img *img);
 t_img			create_img2(char *img_path);
 void			put_img_player(void);
 int				walk_player(int keycode);
 void			move_player(int keycode);
-void			move(int x, int y, int *player);
+void			move(int x, int y, int *player, int flag);
 void			fill(char **arr, int curr_x, int curr_y, char to_fill);
 void			can_win(void);
 

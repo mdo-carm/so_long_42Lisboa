@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:22:52 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/26 23:32:43 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/27 21:50:24 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	check_map(unsigned int i)
 		i++;
 	}
 	check_walls(i);
-	
 }
 
 void	map_size(int fd)
@@ -78,7 +77,7 @@ void	map_size(int fd)
 		temp = get_next_line(fd);
 	}
 	free(temp);
-	if((map()->x_map < 5 && map()->y_map < 3) \
+	if ((map()->x_map < 5 && map()->y_map < 3) \
 	|| (map()->x_map < 3 && map()->y_map < 5))
 		exit(ft_printf("Error\nWrong map dimensions3\n"));
 }
@@ -92,15 +91,15 @@ int	map_create(char *argv)
 
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
-		return(ft_printf("Error\nMap doesnt exist\n"));
+		return (ft_printf("Error\nMap doesnt exist\n"));
 	fd2 = open(argv, O_RDONLY);
 	map_size(fd);
-	map()->map = (char **)ft_calloc((map()->y_map + 1), sizeof(char *));
+	(map()->map) = (char **)ft_calloc((map()->y_map + 1), sizeof(char *));
 	i = 0;
 	while (i < map()->y_map && !map()->map[i])
 	{
 		clear_nl = get_next_line(fd2);
-		map()->map[i] = ft_substr(clear_nl, 0, map()->x_map);
+		(map())->map[i] = ft_substr(clear_nl, 0, map()->x_map);
 		free(clear_nl);
 		i++;
 	}

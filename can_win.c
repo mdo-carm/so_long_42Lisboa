@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 18:27:24 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/26 21:12:17 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/27 21:07:51 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	fill(char **arr, int curr_x, int curr_y, char to_fill)
 
 void	can_win(void)
 {
-	unsigned int i;
-	char **map2;
+	unsigned int	i;
+	char			**map2;
 
 	comp()->can_win = 1;
 	map2 = (char **)ft_calloc((map()->y_map + 1), sizeof(char *));
@@ -41,7 +41,8 @@ void	can_win(void)
 		map2[i] = ft_strdup(map()->map[i]);
 		i++;
 	}
-	fill(map2, comp()->x_player, comp()->y_player, map2[comp()->y_player][comp()->x_player]);
+	fill(map2, comp()->x_player, comp()->y_player, \
+	map2[comp()->y_player][comp()->x_player]);
 	if (comp()->can_win != 0)
 	{
 		free_map();

@@ -6,23 +6,21 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 20:58:24 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/22 19:07:41 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/27 21:41:55 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void move(int x, int y, int *player)
+void	move(int x, int y, int *player, int flag)
 {
-	int flag;
-
-	flag = 0;
 	if (map()->map[comp()->y_player + y][comp()->x_player + x] != '1')
 	{
 		*player += x + y;
 		flag = 1;
 	}
-	if (comp()->collect > 0 && map()->map[comp()->y_player][comp()->x_player] == 'E')
+	if (comp()->collect > 0 && \
+	map()->map[comp()->y_player][comp()->x_player] == 'E')
 	{
 		*player = *player - x - y;
 		flag = 0;
@@ -37,19 +35,22 @@ void move(int x, int y, int *player)
 		comp()->move_nbr += 1;
 		ft_printf("Number of movements: %d\n", comp()->move_nbr);
 	}
-	if (map()->map[comp()->y_player][comp()->x_player] == 'E' && comp()->collect == 0)
+	if (map()->map[comp()->y_player][comp()->x_player] == \
+	'E' && comp()->collect == 0)
 		close_program();
 }
 
 void	move_player(int keycode)
 {
-	if (keycode == LEFT)
-		move(-1,0, &comp()->x_player);
-	if (keycode == RIGHT)
-		move(1,0, &comp()->x_player);
-	if (keycode == UP)
-		move(0,-1, &comp()->y_player);
-	if (keycode == DOWN)
-		move(0,1, &comp()->y_player);
-}
+	int	flag;
 
+	flag = 0;
+	if (keycode == LEFT)
+		move(-1, 0, &comp()->x_player, flag);
+	if (keycode == RIGHT)
+		move(1, 0, &comp()->x_player, flag);
+	if (keycode == UP)
+		move(0, -1, &comp()->y_player, flag);
+	if (keycode == DOWN)
+		move(0, 1, &comp()->y_player, flag);
+}
