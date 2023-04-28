@@ -6,7 +6,7 @@
 #    By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 00:06:37 by mdo-carm          #+#    #+#              #
-#    Updated: 2023/04/27 23:22:41 by mdo-carm         ###   ########.fr        #
+#    Updated: 2023/04/28 21:40:23 by mdo-carm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ COLOUR_RED=\033[0;31m
 COLOUR_BLUE=\033[0;34m
 COLOUR_END=\033[0m
 
-CC = gcc# -fsanitize=address
+CC = gcc
 RM = rm -rf
 
 SOURCE_C = so_long.c map_create.c        \
@@ -57,7 +57,3 @@ fclean:	clean
 re: fclean all
 
 .PHONY: all clean fclean re
-
-# gcc test.c mlx/libmlx.a -L/usr/lib -c test.o
-# ar -rcs test.a mlx/libmlx.a test.o
-# gcc test.c test.a -o test

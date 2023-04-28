@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 18:58:34 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/27 23:10:39 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/28 21:32:14 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	handle_no_event(void)
 {
 	put_img();
 	win()->action += 1;
-	if (win()->action > 48)
+	if (win()->action > 900)
 		win()->action = 0;
 	put_img_player();
 	if (win()->win_ptr)

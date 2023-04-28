@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 19:23:00 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/27 23:10:34 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/28 21:37:54 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,17 +55,17 @@ void	put_img2(t_img *img, int x_pos, int y_pos)
 
 void	put_img_player(void)
 {
-	if (win()->action < 8)
+	if (win()->action < 150)
 		put_img2(&pic()->player[0], comp()->x_player, comp()->y_player);
-	if (win()->action >= 8 && win()->action < 16)
+	if (win()->action >= 150 && win()->action < 300)
 		put_img2(&pic()->player[1], comp()->x_player, comp()->y_player);
-	if (win()->action >= 16 && win()->action < 24)
+	if (win()->action >= 300 && win()->action < 450)
 		put_img2(&pic()->player[2], comp()->x_player, comp()->y_player);
-	if (win()->action >= 24 && win()->action < 32)
+	if (win()->action >= 450 && win()->action < 600)
 		put_img2(&pic()->player[3], comp()->x_player, comp()->y_player);
-	if (win()->action >= 32 && win()->action < 40)
+	if (win()->action >= 600 && win()->action < 750)
 		put_img2(&pic()->player[4], comp()->x_player, comp()->y_player);
-	if (win()->action >= 40 && win()->action <= 48)
+	if (win()->action >= 750 && win()->action <= 900)
 		put_img2(&pic()->player[5], comp()->x_player, comp()->y_player);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 23:54:50 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/27 23:22:58 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/04/28 21:49:58 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,6 @@ void			move_player(int keycode);
 void			move(int x, int y, int *player, int flag);
 void			fill(char **arr, int curr_x, int curr_y, char to_fill);
 void			can_win(void);
+void			free_img(void);
 
 #endif
