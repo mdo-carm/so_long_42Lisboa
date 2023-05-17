@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:22:52 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/27 21:50:24 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/05/17 23:01:12 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,20 @@ int	check_walls(unsigned int i)
 	exit(ft_printf("Error\nWalls don't surround map2\n"));
 }
 
-void	check_map(unsigned int i)
+void	check_map(char *temp)
 {
-	i = 0;
-	while (i < map()->y_map - 1)
+	if (ft_strchr(temp, '\n') == NULL \
+	&& ft_strlen(temp) != map()->x_map)
 	{
-		if (ft_strlen(map()->map[i]) != map()->x_map)
-		{
-			free_map();
-			exit(ft_printf("Error\nWrong map dimensions1\n"));
-		}
-		i++;
+		free(temp);
+		exit(ft_printf("Error\nWrong map dimensions1\n"));
 	}
-	check_walls(i);
+	if (ft_strchr(temp, '\n') != NULL \
+	&& ft_strlen(temp) != (map()->x_map + 1))
+	{
+		free(temp);
+		exit(ft_printf("Error\nWrong map dimensions1\n"));
+	}
 }
 
 void	map_size(int fd)
@@ -70,7 +71,10 @@ void	map_size(int fd)
 	while (temp)
 	{
 		if (temp && temp[0] == '1')
+		{
+			check_map(temp);
 			map()->y_map += 1;
+		}
 		else if (temp && (temp[0] != '\n' || ft_strlen(temp) != 1))
 			map()->x_map = 0;
 		free(temp);
@@ -103,6 +107,6 @@ int	map_create(char *argv)
 		free(clear_nl);
 		i++;
 	}
-	check_map(i);
+	check_walls(i);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 20:58:24 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/04/27 21:41:55 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/05/17 23:06:15 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@ void	move(int x, int y, int *player, int flag)
 	{
 		*player += x + y;
 		flag = 1;
-	}
-	if (comp()->collect > 0 && \
-	map()->map[comp()->y_player][comp()->x_player] == 'E')
-	{
-		*player = *player - x - y;
-		flag = 0;
 	}
 	if (map()->map[comp()->y_player][comp()->x_player] == 'C')
 	{
