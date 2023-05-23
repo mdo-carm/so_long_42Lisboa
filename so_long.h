@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 23:54:50 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/05/17 21:56:25 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:18:01 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int				close_program(void);
 void			win_hooks(void);
 void			free_map(void);
 void			free_map2(char **map_arr);
-void			check_map(char *temp);
+void			check_map(unsigned int i);
 int				check_walls(unsigned int i);
 int				cmp_map_to_wall(char *s1);
 void			components_map(void);

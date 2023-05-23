@@ -6,7 +6,7 @@
 /*   By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 01:22:52 by mdo-carm          #+#    #+#             */
-/*   Updated: 2023/05/17 23:01:12 by mdo-carm         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:37:24 by mdo-carm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,20 +45,24 @@ int	check_walls(unsigned int i)
 	exit(ft_printf("Error\nWalls don't surround map2\n"));
 }
 
-void	check_map(char *temp)
+void	check_map(unsigned int i)
 {
-	if (ft_strchr(temp, '\n') == NULL \
-	&& ft_strlen(temp) != map()->x_map)
+	i = 0;
+	while (i < map()->y_map - 1)
 	{
-		free(temp);
-		exit(ft_printf("Error\nWrong map dimensions1\n"));
+		if (ft_strlen(map()->map[i]) - 1 != map()->x_map)
+		{
+			free_map();
+			exit(ft_printf("Error\nWrong map dimensions1\n"));
+		}
+		i++;
 	}
-	if (ft_strchr(temp, '\n') != NULL \
-	&& ft_strlen(temp) != (map()->x_map + 1))
+	if (ft_strlen(map()->map[map()->y_map - 1]) != (map()->x_map))
 	{
-		free(temp);
-		exit(ft_printf("Error\nWrong map dimensions1\n"));
+		free_map();
+		exit(ft_printf("Error\nWrong map dimensions2\n"));
 	}
+	check_walls(i);
 }
 
 void	map_size(int fd)
@@ -70,13 +74,7 @@ void	map_size(int fd)
 		map()->x_map = ft_strlen(temp) - 1;
 	while (temp)
 	{
-		if (temp && temp[0] == '1')
-		{
-			check_map(temp);
-			map()->y_map += 1;
-		}
-		else if (temp && (temp[0] != '\n' || ft_strlen(temp) != 1))
-			map()->x_map = 0;
+		map()->y_map += 1;
 		free(temp);
 		temp = get_next_line(fd);
 	}
@@ -91,7 +89,6 @@ int	map_create(char *argv)
 	int				fd;
 	int				fd2;
 	unsigned int	i;
-	char			*clear_nl;
 
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
@@ -102,11 +99,9 @@ int	map_create(char *argv)
 	i = 0;
 	while (i < map()->y_map && !map()->map[i])
 	{
-		clear_nl = get_next_line(fd2);
-		(map())->map[i] = ft_substr(clear_nl, 0, map()->x_map);
-		free(clear_nl);
+		(map())->map[i] = get_next_line(fd2);
 		i++;
 	}
-	check_walls(i);
+	check_map(i);
 	return (0);
 }
