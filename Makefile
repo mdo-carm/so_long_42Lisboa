@@ -6,7 +6,7 @@
 #    By: mdo-carm <mdo-carm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 00:06:37 by mdo-carm          #+#    #+#              #
-#    Updated: 2023/05/23 15:06:16 by mdo-carm         ###   ########.fr        #
+#    Updated: 2023/06/21 18:54:50 by mdo-carm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,14 +27,19 @@ SOURCE_C = so_long.c map_create.c        \
            put_img.c create_img.c            \
            move_player.c can_win.c            \
 
- CFLAGS = -Wall  \
-          -Wextra \
-          -Werror  \
+OBJ_C = $(SOURCE_C:.c=.o)
+
+CFLAGS = -Wall  \
+         -Wextra \
+         -Werror  \
 
 all: $(NAME)
 
-$(NAME): mlx_lib libft_lib ft_printf_lib $(SOURCE_C)
-		@$(CC) $(CFLAGS) $(SOURCE_C) library/get_next_line/get_next_line.c library/libft/libft.a library/ft_printf/libftprintf.a library/mlx/libmlx.a -lXext -lX11 -o $@
+$(NAME): mlx_lib libft_lib ft_printf_lib $(OBJ_C)
+		@$(CC) $(CFLAGS) $(OBJ_C) library/get_next_line/get_next_line.c library/libft/libft.a library/ft_printf/libftprintf.a library/mlx/libmlx.a -lXext -lX11 -o $@
+
+%.o: %.c
+		@$(CC) $(FLAGS) -c $< -o $@
 
 mlx_lib:
 		@$(MAKE) -C ./library/mlx --no-print-directory
@@ -47,10 +52,13 @@ ft_printf_lib:
 
 clean: 
 		@rm -rf $(OBJ)
+		@$(MAKE) clean -C ./library/mlx
+		@$(MAKE) clean -C ./library/libft
+		@$(MAKE) clean -C ./library/ft_printf
 
 fclean:	clean
 		@$(RM) $(NAME) *.o
-		@$(MAKE) clean -C ./library/mlx
+		@$(MAKE) fclean -C ./library/mlx
 		@$(MAKE) fclean -C ./library/libft
 		@$(MAKE) fclean -C ./library/ft_printf
 
